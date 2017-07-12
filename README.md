@@ -42,8 +42,10 @@ clib install lavoiesl/osx-cpu-temp
  * `-n` Suppress output of unit abbreviation (C/F).
 
 ### Scripting
-while [[ 1 ]];  do echo `date +"%I:%M:%S"` `./osx-cpu-temp -Cn` >> /tmp/temp.txt ; sleep 2; done&
+```bash
+while [[ 1 ]];  do echo `date +"%I:%M:%S"` `./osx-cpu-temp -Cn` >> /tmp/temp.txt ; sleep 2; done &
 gnuplot plot.gnu < /tmp/temp.txt 
+```
 
 ## Maintainer 
 
