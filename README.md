@@ -39,6 +39,11 @@ clib install lavoiesl/osx-cpu-temp
 
  * `-C` Output temperature in Celsius (default).
  * `-F` Output temperature in Fahrenheit.
+ * `-n` Suppress output of unit abbreviation (C/F).
+
+### Scripting
+while [[ 1 ]];  do echo `date +"%I:%M:%S"` `./osx-cpu-temp -Cn` >> /tmp/temp.txt ; sleep 2; done&
+gnuplot plot.gnu < /tmp/temp.txt 
 
 ## Maintainer 
 
