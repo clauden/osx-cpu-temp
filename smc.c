@@ -171,13 +171,17 @@ double convertToFahrenheit(double celsius) {
 int main(int argc, char *argv[])
 {
     char scale = 'C';
+    bool terse = false;
 
     int c;
-    while ((c = getopt(argc, argv, "CF")) != -1) {
+    while ((c = getopt(argc, argv, "CFn")) != -1) {
       switch (c) {
         case 'F':
         case 'C':
           scale = c;
+          break;
+        case 'n':
+          terse = true;
           break;
       }
     }
@@ -190,7 +194,10 @@ int main(int argc, char *argv[])
       temperature = convertToFahrenheit(temperature);
     }
 
-    printf("%0.1f°%c\n", temperature, scale);
+    printf("%0.1f", temperature);
+    if (!terse)
+      printf("°%c", scale);
+    printf("\n");
 
     return 0;
 }
